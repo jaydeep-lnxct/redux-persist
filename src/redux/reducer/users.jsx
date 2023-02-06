@@ -27,3 +27,9 @@ export const userPersistConfig = {
 
 export const {setUserData}= userSlice.actions;
 export const userReducer = userSlice.reducer;
+
+
+export const useUserState = () => {
+    const allUsers = useSelector((state) => state?.users?.userData);
+    return allUsers;
+  };
