@@ -1,3 +1,4 @@
+import React from "react";
 import { SyntheticEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUserData, useUserState } from "../../redux/reducer/users";
@@ -7,7 +8,6 @@ import { useNavigate } from "react-router-dom";
 import { Colors } from "../../../public/assets/colors";
 import { images } from "./../../utils/images";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import React from "react";
 import axios from "axios";
 const SignupPage = () => {
   const navigate = useNavigate();
@@ -40,12 +40,12 @@ const SignupPage = () => {
     navigate("/login");
   };
 
-  // Login With Linkedin
+  // Signup With Linkedin
   const handleLinkedin = () => {
     console.log("CLICKED LINKEDIN");
   };
 
-  // Login With Web3
+  // Signup With Web3
   const handleWeb = () => {
     console.log("CLICKED WEB 3");
   };

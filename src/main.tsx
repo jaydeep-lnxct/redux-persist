@@ -10,12 +10,12 @@ import App from "./App";
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <BrowserRouter>
-    <React.StrictMode>
+    {/* <React.StrictMode> */}
       <Provider store={store}>
         <PersistGate loading={null} persistor={persistor}>
           <App />
         </PersistGate>
       </Provider>
-    </React.StrictMode>
+    {/* </React.StrictMode> */}
   </BrowserRouter>
 );
