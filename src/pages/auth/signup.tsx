@@ -8,9 +8,11 @@ import { Colors } from "../../../public/assets/colors";
 import { images } from "./../../utils/images";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
 import React from "react";
+import axios from "axios";
 const SignupPage = () => {
   const navigate = useNavigate();
   const [isTogglePassword, setTogglePassword] = useState(false);
+  const dispatch = useDispatch();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -19,27 +21,41 @@ const SignupPage = () => {
   });
 
   const { name, email, password }: any = formData;
+
+  // On Change Form
   const onChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({ ...formData, [event.target.name]: event?.target?.value });
   };
-  const dispatch = useDispatch();
+
+  // On Submit Form
   const submit = (event: SyntheticEvent) => {
     event.preventDefault();
-    
     dispatch(setUserData(formData));
   };
 
   const data = useUserState();
-  console.log("data", data);
+  console.log(data);
 
   const handleClick = () => {
     navigate("/login");
   };
 
+  // Login With Linkedin
+  const handleLinkedin = () => {
+    console.log("CLICKED LINKEDIN");
+  };
+
+  // Login With Web3
+  const handleWeb = () => {
+    console.log("CLICKED WEB 3");
+  };
   return (
     <>
-      <div className="row">
-        <div className=" col-6" style={{ height: "100%" }}>
+      <div className="auth row">
+        <div
+          className="col-lg-6 col-xl-6 col-md-12 col-12"
+          style={{ height: "100%" }}
+        >
           <div
             className="signup authFlex"
             style={{ backgroundImage: `url(${images.signupbg})` }}
@@ -86,6 +102,7 @@ const SignupPage = () => {
                   value={password}
                   onChange={(event) => onChange(event)}
                 />
+
                 <div onClick={() => setTogglePassword(!isTogglePassword)}>
                   {!isTogglePassword ? (
                     <AiOutlineEyeInvisible
@@ -116,11 +133,10 @@ const SignupPage = () => {
                 <h1>Sign up with </h1>
               </div>
               <div className="auth__with--img">
-                <div>
-                  <SVG src={svg.linkdeen} />
-                </div>
+                <SVG src={svg.linkedin} onClick={handleLinkedin} />
+
                 <div className="auth__with--img-web3">
-                  <SVG src={svg.web3} />
+                  <SVG src={svg.web3} onClick={handleWeb} />
                 </div>
               </div>
               <p className="auth__with--account">
@@ -133,7 +149,10 @@ const SignupPage = () => {
             </div>
           </div>
         </div>
-        <div className="col-6" style={{ height: "100%" }}>
+        <div
+          className="col-lg-6 col-xl-6 col-md-12 col-12 mobileHidden"
+          style={{ height: "100%" }}
+        >
           <img
             className="signup__image"
             src={images.signupImg}

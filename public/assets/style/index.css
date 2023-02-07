@@ -23,6 +23,7 @@ html {
 body {
     font-family: 'STIXTwoText-Regular';
     font-weight: 400;
+    font-size: 16px;
 }
 
 body,
@@ -42,14 +43,15 @@ p {
     margin-bottom: 0;
 }
 
+/* Auth Design */
 .signup {
-    /* background-size: cover; */
     background-repeat: no-repeat;
     height: 100%;
     width: 100%;
+    
 }
 
-.row {
+.auth.row {
     height: 100%;
     --bs-gutter-x: 0;
 }
@@ -57,9 +59,10 @@ p {
 .signup__image {
     height: 100%;
     width: 100%;
+    object-fit: cover;
 }
 
-.col-6 {
+.auth .col-6 {
     padding-left: 0 !important;
     padding-right: 0 !important;
 }
@@ -104,6 +107,7 @@ p {
     border-bottom: 0.3px solid #E8E8E8;
     display: flex;
     align-items: center;
+    margin-top: 16px;
 }
 
 .auth__form ::placeholder {
@@ -114,9 +118,6 @@ p {
     outline: none;
 }
 
-.form-group {
-    margin-top: 16px;
-}
 
 .form-group input {
     padding: 10px 22px;
@@ -133,6 +134,13 @@ p {
     font-weight: 700;
     font-size: 20px;
     line-height: 25px;
+    color: #fff;
+}
+
+
+.form__button button:hover {
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    transform: translateY(-1px);
     color: #fff;
 }
 
@@ -196,14 +204,15 @@ p {
 .auth__with--img {
     display: flex;
     justify-content: center;
+    margin-top: 24px;
 }
 
 .auth__with--img-web3 {
     margin-left: 40px;
 }
 
-.auth__with--img {
-    margin-top: 24px;
+.auth__with--img svg {
+    cursor: pointer;
 }
 
 .auth__with--title h1 {
@@ -227,4 +236,15 @@ p {
 
 .auth__with--account {
     margin-top: 24px;
+}
+
+
+@media(max-width:991px) {
+    .mobileHidden {
+        display: none;
+    }
+
+    .signup {
+        background-size: cover;
+     }
 }

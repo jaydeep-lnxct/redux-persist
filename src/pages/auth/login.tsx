@@ -1,5 +1,6 @@
 import { svg } from "../../utils";
 import SVG from "react-inlinesvg";
+
 import {images} from './../../utils/images'
 import { useState } from "react";
 import { Colors } from "../../../public/assets/colors";
@@ -11,7 +12,6 @@ import React from "react";
 const LoginPage = () => {
   const navigate = useNavigate();
   const [isTogglePassword, setTogglePassword] = useState(false);
-  
   const [formData, setFormData] = useState({
     email: "",
     password: "",
@@ -30,9 +30,9 @@ const LoginPage = () => {
   };
 
   return (
-    <>
-      <div className="row">
-        <div className=" col-6" style={{ height: "100%" }}>
+    
+      <div className=" auth row">
+        <div className="col-lg-6 col-xl-6 col-md-12 col-12" style={{ height: "100%" }}>
           <div
             className="signup authFlex"
             style={{ backgroundImage: `url(${images.loginbg})` }}
@@ -93,7 +93,7 @@ const LoginPage = () => {
               </div>
               <div className="auth__with--img">
                 <div>
-                  <SVG src={svg.linkdeen} />
+                  <SVG src={svg.linkedin} />
                 </div>
                 <div className="auth__with--img-web3">
                   <SVG src={svg.web3} />
@@ -109,7 +109,7 @@ const LoginPage = () => {
             </div>
           </div>
         </div>
-        <div className="col-6" style={{ height: "100%" }}>
+        <div className="col-lg-6 col-xl-6 col-md-12 col-12 mobileHidden" style={{ height: "100%" }}>
           <img
             className="signup__image"
             src={images.loginImg}
@@ -117,7 +117,7 @@ const LoginPage = () => {
           />
         </div>
       </div>
-    </>
+    
   );
 };
 
