@@ -3,12 +3,12 @@ import { SyntheticEvent, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setUserData, useUserState } from "../../redux/reducer/users";
 import SVG from "react-inlinesvg";
-import { svg } from "../../utils";
+import { svg } from "../../utils/images";
 import { useNavigate } from "react-router-dom";
 import { Colors } from "../../../public/assets/colors";
 import { images } from "./../../utils/images";
 import { AiOutlineEye, AiOutlineEyeInvisible } from "react-icons/ai";
-import axios from "axios";
+
 const SignupPage = () => {
   const navigate = useNavigate();
   const [isTogglePassword, setTogglePassword] = useState(false);
@@ -33,9 +33,7 @@ const SignupPage = () => {
     dispatch(setUserData(formData));
   };
 
-  const data = useUserState();
-  console.log(data);
-
+  // Navigate Login Page
   const handleClick = () => {
     navigate("/login");
   };
